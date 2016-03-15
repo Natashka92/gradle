@@ -1,0 +1,63 @@
+apply plugin: 'java'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile group: 'commons-collections', name: 'commons-collections', version: '3.2'
+    testCompile group: 'junit', name: 'junit', version: '4.7'
+}
+
+task sourcesJar(type: Jar) {
+    appendix = 'sources'
+    from sourceSets.main.allJava
+}
+
+task testJar(type: Jar) {
+    appendix = 'test'
+    from sourceSets.test.output
+}
+
+jar {
+    exclude 'my/spring/**'
+}
+
+task springDbJar(type: Jar) {
+    appendix = 'spring-db'
+    from sourceSets.main.output
+    include 'my/spring/db/**'
+}
+
+task springAuthJar(type: Jar) {
+    appendix = 'spring-auth'
+    from sourceSets.main.output
+    include 'my/spring/auth/**'
+}
+
+task springPluginJar(type: Jar) {
+    appendix = 'spring-plugin'
+    from sourceSets.main.output
+    include 'my/spring/plugin/**'
+}
+
+
+
+
+
+
+
+task hello << {
+    println 'Hello world!'
+}
+
+
+task upper << {
+    String someString = 'mY_nAmE'
+    println "Original: " + someString
+    println "Upper case: " + someString.toUpperCase()
+    4.times { println "$it " }
+
+}

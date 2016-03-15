@@ -1,0 +1,2 @@
+rootProject.name = 'grable'
+include 'main_project', 'library_project'

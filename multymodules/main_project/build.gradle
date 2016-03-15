@@ -1,0 +1,34 @@
+apply plugin: 'java'
+apply plugin: "application"
+
+version = '1.0'
+
+mainClassName = "com.hello.HelloWorld"
+
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+jar {
+    baseName = 'gs-gradle'
+    version =  '0.1.0'
+}
+
+dependencies {
+    compile "joda-time:joda-time:2.2"
+    compile project(":library_project")
+}
+
+
+//apply plugin: "application"
+//
+//version = '1.0'
+//mainClassName = "com.hello.HelloWorld"
+//
+//dependencies {
+//    compile "joda-time:joda-time:2.2"
+//    compile project(":library_project")
+//}
+
